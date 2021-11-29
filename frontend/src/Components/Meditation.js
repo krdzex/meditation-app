@@ -117,13 +117,13 @@ const Meditation = () => {
             </audio>
             <div className="circle">
                 <img src={process.env.PUBLIC_URL + `/images/${songInformations.image}`} alt="img"></img>
-                <div className="inRow">
-                    <div style={{ marginRight: "5px", color: "white" }}>{calculateTime(currentTime)}</div>
-                    <input type="range" className="progressBar" defaultValue="0" ref={progressBar} style={{ width: "195px" }} />
-                    <div style={{ marginLeft: "5px", color: "white" }}>{calculateTime(duration)}</div>
-                </div>
                 <button >{!play ? <Icon icon="carbon:play-filled-alt" className="realIcon" onClick={() => onPlayClick()} /> : <div><Icon icon="el:repeat" style={{ marginRight: "15px", fontSize: "65px" }} onClick={() => onRestartClick()} /><Icon icon="clarity:pause-solid" className="realIcon" onClick={() => onPauseClick()} /></div>}</button>
             </div>
+            <div className="inRow">
+                    <div style={{ marginRight: "5px", color: "white" }}>{calculateTime(currentTime)}</div>
+                    <input type="range" className="progressBar" defaultValue="0" ref={progressBar} />
+                    <div style={{ marginLeft: "5px", color: "white" }}>{calculateTime(duration)}</div>
+                </div>
             <div className="title">{songInformations.songName}</div>
             <div className="heart"><Icon icon="ci:heart-fill" className="realIcon" onClick={() => onHeartClick()} style={like ? { color: "red" } : {}} /></div>
         </div>
